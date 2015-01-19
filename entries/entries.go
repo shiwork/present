@@ -211,3 +211,12 @@ func StartCleaner(db *sql.DB) {
 		}
 	}()
 }
+
+func DeleteByTag(db *sql.DB, tag string) error {
+  sql := `DELETE FROM entries WHERE tag= ?`
+  _, err := db.Exec(sql, tag)
+  if err != nil {
+    return err
+  }
+  return nil
+}

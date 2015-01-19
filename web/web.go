@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/hakobe/present/entries"
-	slackOutgoing "github.com/hakobe/present/slack/outgoing"
+	"github.com/shiwork/present/entries"
+	slackOutgoing "github.com/shiwork/present/slack/outgoing"
 )
 
 var bind string = ":" + os.Getenv("PORT")

@@ -9,12 +9,12 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
-	"github.com/hakobe/present/collector"
-	"github.com/hakobe/present/config"
-	"github.com/hakobe/present/entries"
-	slackIncoming "github.com/hakobe/present/slack/incomming"
-	"github.com/hakobe/present/tags"
-	"github.com/hakobe/present/web"
+	"github.com/shiwork/present/collector"
+	"github.com/shiwork/present/config"
+	"github.com/shiwork/present/entries"
+	slackIncoming "github.com/shiwork/present/slack/incomming"
+	"github.com/shiwork/present/tags"
+	"github.com/shiwork/present/web"
 )
 
 func trim(s string, l int) string {
@@ -75,6 +75,11 @@ func delTag(db *sql.DB, tag string) {
 		log.Printf("Deleting tag failed: %v\n", err)
 		return
 	}
+  // delete entries by tag
+ err = entries.DeleteByTag(db, tag)
+  if err != nil {
+    log.Printf("Delete entries by tag failed: %v\n", err)
+  }
 	log.Printf("Tag deleted: %s\n", tag)
 	postTags(db)
 }

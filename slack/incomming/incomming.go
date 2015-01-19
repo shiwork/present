@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/hakobe/present/config"
+	"github.com/shiwork/present/config"
 )
 
 var webhookUrl string = os.Getenv("PRESENT_SLACK_INCOMMING_URL")

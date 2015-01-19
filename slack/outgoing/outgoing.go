@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/hakobe/present/config"
+	"github.com/shiwork/present/config"
 )
 
 type Op struct {
